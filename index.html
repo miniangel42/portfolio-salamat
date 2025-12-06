@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salamat Minajev - Видеомонтажер</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f2818 0%, #1a4d3e 100%);
+            color: #e8dcc8;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        /* ===== ТИТУЛЬНАЯ СТРАНИЦА ===== */
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 100px;
+            padding-bottom: 60px;
+            border-bottom: 2px solid #e8dcc8;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #e8dcc8;
+            letter-spacing: -1px;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.3em;
+            color: #a8d5ba;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .hero-content .specialization {
+            font-size: 0.95em;
+            color: #7fb9a0;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .contact-item {
+            font-size: 0.95em;
+            color: #e8dcc8;
+        }
+
+        .contact-item strong {
+            color: #a8d5ba;
+        }
+
+        .hero-photo {
+            flex-shrink: 0;
+        }
+
+        .hero-photo img {
+            width: 280px;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 3px solid #a8d5ba;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        /* ===== ОСНОВНЫЕ СЕКЦИИ ===== */
+        section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 35px;
+            color: #e8dcc8;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #a8d5ba;
+        }
+
+        .about-text {
+            font-size: 1.05em;
+            color: #e8dcc8;
+            line-height: 1.9;
+            margin-bottom: 25px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+            padding: 30px;
+            background: rgba(168, 213, 186, 0.08);
+            border-left: 4px solid #a8d5ba;
+            border-radius: 4px;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5em;
+            color: #a8d5ba;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .stat-item p {
+            font-size: 1em;
+            color: #7fb9a0;
+        }
+
+        /* ===== НАВЫКИ ===== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .skill-category h3 {
+            font-size: 1.3em;
+            color: #a8d5ba;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            font-size: 0.95em;
+            color: #e8dcc8;
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .skill-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #a8d5ba;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        /* ===== ПОРТФОЛИО ===== */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            background: rgba(168, 213, 186, 0.05);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #a8d5ba;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            background: rgba(168, 213, 186, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .portfolio-item h3 {
+            font-size: 1.15em;
+            color: #e8dcc8;
+            margin-bottom: 12px;
+        }
+
+        .views-badge {
+            display: inline-block;
+            background: #a8d5ba;
+            color: #0f2818;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-description {
+            font-size: 0.9em;
+            color: #7fb9a0;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .portfolio-link {
+            display: inline-block;
+            color: #a8d5ba;
+            text-decoration: none;
+            font-size: 0.9em;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .portfolio-link:hover {
+            border-bottom-color: #a8d5ba;
+        }
+
+        /* ===== ПРОЦЕСС ===== */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .step {
+            background: rgba(168, 213, 186, 0.08);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #a8d5ba;
+            text-align: center;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            background: #a8d5ba;
+            color: #0f2818;
+            border-radius: 50%;
+            line-height: 45px;
+            font-weight: 700;
+            font-size: 1.2em;
+            margin-bottom: 12px;
+        }
+
+        .step p {
+            font-size: 0.95em;
+            color: #e8dcc8;
+            font-weight: 500;
+        }
+
+        /* ===== ИНСТРУМЕНТЫ ===== */
+        .tools-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .tool-item {
+            background: rgba(168, 213, 186, 0.08);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #a8d5ba;
+            font-size: 1em;
+            color: #e8dcc8;
+            font-weight: 500;
+        }
+
+        /* ===== ПОЧЕМУ СО МНОЙ ===== */
+        .reasons-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .reason-item {
+            padding: 20px;
+            background: rgba(168, 213, 186, 0.05);
+            border-radius: 6px;
+            border-left: 3px solid #a8d5ba;
+        }
+
+        .reason-item p {
+            font-size: 0.95em;
+            color: #e8dcc8;
+            font-weight: 500;
+        }
+
+        /* ===== КОНТАКТЫ ===== */
+        .contact-section {
+            background: rgba(168, 213, 186, 0.1);
+            padding: 50px 40px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #a8d5ba;
+            margin-top: 80px;
+        }
+
+        .contact-section h2 {
+            border-bottom: none;
+            margin-bottom: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .contact-link {
+            font-size: 1.05em;
+            color: #e8dcc8;
+            text-decoration: none;
+            transition: color 0.3s;
+            padding: 10px 0;
+        }
+
+        .contact-link:hover {
+            color: #a8d5ba;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            font-size: 0.95em;
+            color: #a8d5ba;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            color: #e8dcc8;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 1px solid #a8d5ba;
+            color: #7fb9a0;
+            font-size: 0.9em;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .hero-photo img {
+                width: 200px;
+                height: 280px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2em;
+            }
+
+            .reasons-list {
+                grid-template-columns: 1fr;
+            }
+
+            .tools-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            body {
+                background: #0f2818;
+            }
+
+            a {
+                color: #a8d5ba;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ТИТУЛЬНАЯ СТРАНИЦА -->
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Salamat Minajev</h1>
+                <p class="subtitle">Видеомонтажер</p>
+                <p class="specialization">
+                    <strong>Специализация:</strong><br>
+                    Видеомонтаж — YouTube Shorts, TikTok, обучающий контент, 
+                    нарезки, динамичные ролики, гейминг-монтаж
+                </p>
+                <div class="contacts">
+                    <div class="contact-item">
+                        <strong>📧 Email:</strong> s.minazhev@gmail.com
+                    </div>
+                    <div class="contact-item">
+                        <strong>📱 Telegram:</strong> @miniangel_42
+                    </div>
+                </div>
+            </div>
+            <div class="hero-photo">
+                <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/402d22bb-423c-4db0-b066-3aa5f20c4aa4" alt="Salamat Minajev">
+            </div>
+        </div>
+
+        <!-- ОБО МНЕ -->
+        <section class="about">
+            <h2>Обо мне</h2>
+            <p class="about-text">
+                Я видеомонтажер с опытом создания динамичных, информативных и 
+                визуально привлекательных видеороликов. За 9 месяцев работы смонтировал 
+                <strong>более 200 видео</strong> в жанрах YouTube Shorts, TikTok, гейминг-контента и обучающих материалов.
+            </p>
+            <p class="about-text">
+                Мои работы набрали миллионы просмотров благодаря внимательному отношению 
+                к деталям: чистому звуку, точному таймингу, эффектным переходам и 
+                правильному подбору музыки.
+            </p>
+            <p class="about-text">
+                Использую Adobe Premiere Pro, владею работой со звуком, цветокоррекцией, 
+                переходами, ключевыми кадрами, таймингом и подбором музыки.
+                <strong>Работаю на английском языке.</strong>
+            </p>
+            <p class="about-text">
+                Готов брать как разовые задачи, так и долгосрочные проекты.
+            </p>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <h3>200+</h3>
+                    <p>Смонтировано видео</p>
+                </div>
+                <div class="stat-item">
+                    <h3>9 мес</h3>
+                    <p>Профессиональный опыт</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- НАВЫКИ -->
+        <section class="skills">
+            <h2>Навыки</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Основные навыки</h3>
+                    <ul class="skill-list">
+                        <li>Монтаж в Adobe Premiere Pro (продвинутый уровень)</li>
+                        <li>Работа со звуком (EQ, шумоподавление, баланс)</li>
+                        <li>Цветокоррекция (базовая и средняя)</li>
+                        <li>Плавные переходы, эффекты, speed ramp</li>
+                        <li>Монтаж под ритм музыки</li>
+                        <li>Создание титров и субтитров</li>
+                        <li>Монтаж вертикальных видео (Shorts/TikTok/Reels)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Дополнительные навыки</h3>
+                    <ul class="skill-list">
+                        <li>CapCut (быстрые правки)</li>
+                        <li>DaVinci Resolve (цветокоррекция)</li>
+                        <li>Adobe Audition (обработка звука)</li>
+                        <li>Работа по техническому заданию</li>
+                        <li>Быстрая доработка по правкам</li>
+                        <li>Работа с любым объёмом материала</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПОРТФОЛИО -->
+        <section class="portfolio">
+            <h2>Мои лучшие работы</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <h3>🎬 Michael Page vs. Richard Kaily</h3>
+                    <div class="views-badge">16 млн просмотров</div>
+                    <p class="portfolio-description">
+                        Профессиональный ММА монтаж на английском языке. 
+                        Подбор клипов, сценарная структура, монтаж, подбор музыки, 
+                        звуковые эффекты, эффектные переходы
+                    </p>
+                    <a href="https://www.youtube.com/shorts/cVc48NyGtZ8" target="_blank" class="portfolio-link">
+                        Смотреть работу →
+                    </a>
+                </div>
+
+                <div class="portfolio-item">
+                    <h3>🎬 Salt Papi vs. Josh Brueckner</h3>
+                    <div class="views-badge">20 млн просмотров ⭐</div>
+                    <p class="portfolio-description">
+                        Профессиональный ММА монтаж на английском языке. 
+                        Подбор клипов, сценарная структура, монтаж, музыка, 
+                        звуковые эффекты, профессиональные титры
+                    </p>
+                    <a href="https://www.youtube.com/shorts/pa0rrnSTkag" target="_blank" class="portfolio-link">
+                        Смотреть работу →
+                    </a>
+                </div>
+
+                <div class="portfolio-item">
+                    <h3>🎬 Kota Miura vs. Buakaw Banchamek</h3>
+                    <div class="views-badge">13 млн просмотров</div>
+                    <p class="portfolio-description">
+                        Профессиональный ММА монтаж на английском языке. 
+                        Нарезка боя, динамичный монтаж, музыка, 
+                        звуковые эффекты, эффектные переходы
+                    </p>
+                    <a href="https://www.youtube.com/shorts/fG02COno3Ds" target="_blank" class="portfolio-link">
+                        Смотреть работу →
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- РАБОЧИЙ ПРОЦЕСС -->
+        <section class="process">
+            <h2>Рабочий процесс</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <p>Получение ТЗ и материалов</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <p>Черновой монтаж</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <p>Согласование</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <p>Цветокоррекция и звук</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <p>Финальная версия</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <p>Быстрая доработка</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ИНСТРУМЕНТЫ -->
+        <section class="tools">
+            <h2>Инструменты</h2>
+            <div class="tools-list">
+                <div class="tool-item">🎥 Adobe Premiere Pro</div>
+                <div class="tool-item">🎬 CapCut</div>
+                <div class="tool-item">🎨 DaVinci Resolve</div>
+                <div class="tool-item">🔊 Adobe Audition</div>
+            </div>
+        </section>
+
+        <!-- ПОЧЕМУ СО МНОЙ УДОБНО РАБОТАТЬ -->
+        <section class="why-hire">
+            <h2>Почему со мной удобно работать</h2>
+            <div class="reasons-list">
+                <div class="reason-item">
+                    <p>✓ Чистый звук и аккуратный монтаж без компромиссов</p>
+                </div>
+                <div class="reason-item">
+                    <p>✓ Выполняю правки быстро и без конфликтов</p>
+                </div>
+                <div class="reason-item">
+                    <p>✓ Соблюдаю сроки на 100%</p>
+                </div>
+                <div class="reason-item">
+                    <p>✓ Всегда на связи (оперативно отвечаю)</p>
+                </div>
+                <div class="reason-item">
+                    <p>✓ Готов работать с любым объёмом материала</p>
+                </div>
+                <div class="reason-item">
+                    <p>✓ Понимаю визуальные тренды</p>
+                </div>
+                <div class="reason-item">
+                    <p>✓ 200+ видео — опыт говорит сам за себя</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- КОНТАКТЫ -->
+        <section class="contact-section">
+            <h2>Давайте работать вместе!</h2>
+            <div class="contact-links">
+                <div class="contact-link">📧 <strong>s.minazhev@gmail.com</strong></div>
+                <div class="contact-link">📱 <strong>@miniangel_42</strong> (Telegram)</div>
+            </div>
+            <p style="color: #a8d5ba; margin-top: 25px; font-size: 0.95em;">
+                Вы можете ознакомиться с другими проделанными материалами на моих YouTube каналах
+            </p>
+            <div class="social-links">
+                <a href="https://www.youtube.com/@FightVerse8" target="_blank" class="social-link">
+                    🎬 FightVerse8
+                </a>
+                <a href="https://www.youtube.com/@sounds_of_mma" target="_blank" class="social-link">
+                    🎬 Sounds of MMA
+                </a>
+                <a href="https://www.youtube.com/@CageRage8" target="_blank" class="social-link">
+                    🎬 CageRage8
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2025 Salamat Minajev | Видеомонтажер | Все права защищены</p>
+        </footer>
+    </div>
+</body>
+</html>
